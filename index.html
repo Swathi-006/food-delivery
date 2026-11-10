@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CraveKart | Food Delivery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">🍔 Crave<span>Kart</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#offers">Offers</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <button class="cart-btn" onclick="toggleCart()">
+        🛒 Cart <span id="cart-count">0</span>
+    </button>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="tag">🔥 THE TASTIEST DEALS ARE HERE</span>
+        <h1>Good Food.<br>Good Mood.<br><span>Delivered Fast!</span></h1>
+        <p>Your favourite food, delivered fresh and hot to your doorstep.</p>
+
+        <div class="hero-buttons">
+            <a href="#menu" class="primary-btn">Order Now →</a>
+            <a href="#offers" class="secondary-btn">Explore Offers</a>
+        </div>
+
+        <div class="hero-stats">
+            <div><strong>50+</strong><small>Restaurants</small></div>
+            <div><strong>30 min</strong><small>Fast Delivery</small></div>
+            <div><strong>4.9★</strong><small>Customer Rating</small></div>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=900" alt="Delicious pizza">
+        <div class="floating-offer">50% OFF<br><small>First Order!</small></div>
+    </div>
+</section>
+
+<section class="offers" id="offers">
+    <div class="section-heading">
+        <span>EXCLUSIVE DEALS</span>
+        <h2>Offers You Can't Resist 🎁</h2>
+        <p>More taste, less price!</p>
+    </div>
+
+    <div class="offer-grid">
+        <div class="offer-card orange">
+            <h3>50% OFF</h3>
+            <p>On your first order</p>
+            <strong>Use: CRAVE50</strong>
+        </div>
+
+        <div class="offer-card purple">
+            <h3>BUY 1 GET 1</h3>
+            <p>Selected delicious pizzas</p>
+            <strong>Use: BOGO</strong>
+        </div>
+
+        <div class="offer-card green">
+            <h3>FREE DELIVERY</h3>
+            <p>On orders above ₹299</p>
+            <strong>Use: FREEDEL</strong>
+        </div>
+    </div>
+</section>
+
+<section class="categories">
+    <div class="section-heading">
+        <span>WHAT ARE YOU CRAVING?</span>
+        <h2>Explore Categories</h2>
+    </div>
+
+    <div class="category-list">
+        <button onclick="filterFood('All')">🍽️ All</button>
+        <button onclick="filterFood('Pizza')">🍕 Pizza</button>
+        <button onclick="filterFood('Burger')">🍔 Burger</button>
+        <button onclick="filterFood('Biryani')">🍛 Biryani</button>
+        <button onclick="filterFood('Chinese')">🍜 Chinese</button>
+        <button onclick="filterFood('Dessert')">🍰 Dessert</button>
+    </div>
+</section>
+
+<section class="menu-section" id="menu">
+    <div class="section-heading">
+        <span>OUR SPECIAL MENU</span>
+        <h2>Popular Delicious Foods ❤️</h2>
+        <p>Freshly prepared, just for you.</p>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="search" placeholder="🔍 Search your favourite food..." oninput="searchFood()">
+    </div>
+
+    <div class="food-grid" id="food-grid"></div>
+</section>
+
+<section class="about" id="about">
+    <h2>Why Choose CraveKart?</h2>
+    <div class="features">
+        <div>🚀 <h3>Fast Delivery</h3><p>Hot food at your doorstep.</p></div>
+        <div>🥗 <h3>Fresh Food</h3><p>Quality ingredients every day.</p></div>
+        <div>💰 <h3>Best Offers</h3><p>Great food at great prices.</p></div>
+        <div>❤️ <h3>Made With Love</h3><p>Your happiness is our priority.</p></div>
+    </div>
+</section>
+
+<footer>
+    <h2>🍔 CraveKart</h2>
+    <p>Eat Fresh. Live Happy. Order Anytime!</p>
+    <p>© 2026 CraveKart. All Rights Reserved.</p>
+</footer>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+<aside class="cart-panel" id="cart-panel">
+    <div class="cart-header">
+        <h2>🛒 Your Cart</h2>
+        <button onclick="toggleCart()">✕</button>
+    </div>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-bottom">
+        <div class="coupon">
+            <input id="coupon-code" placeholder="Enter coupon code">
+            <button onclick="applyCoupon()">Apply</button>
+        </div>
+
+        <p id="discount-info"></p>
+        <h3>Total: ₹<span id="cart-total">0</span></h3>
+        <button class="checkout-btn" onclick="checkout()">Proceed to Checkout →</button>
+    </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
